@@ -1,5 +1,4 @@
 * xref:index.adoc[{counter:module}. MetalLB Layer 3 (BGP) as a foundational component for BGP loadBalancer infrastructure.]
-#* xref:01-bgp-lb#_metallb_layer_3_bgp_as_a_fondational_component[{module}.{counter:sub1}. MetalLB Layer 3 (BGP) as a foundational component.]
 * xref:02-metallb-and-bgp#_metalln_and_frr-bgp_configuration_settings[{counter: module}. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.]
 * xref:03-bgp-lb-poc.adoc#_proof-of-concept_for_bgp_loadbalancer_infrastructure[{counter:module}. Proof-of-Concept for BGP load balancer infrastructure to support Disaster Recovery for OpenShift Virtualization.]
 * xref:04-bgp-lb-addendum.adoc[{counter:module}. Addendum: sw versions and configurations related to this Proof-of-Concept.]
