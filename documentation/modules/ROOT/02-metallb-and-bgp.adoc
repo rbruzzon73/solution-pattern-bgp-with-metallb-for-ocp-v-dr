@@ -1,0 +1,126 @@
+### Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.
+
+* MetalLB can automatically allocate External IP addresses (IPv4 and IPv6), to OpenShift Virtualization services of type LoadBalancer, from any IP address pool where autoAssign is set to true (Figure 5).
+
+* MetalLB offers manual IP address assignment to enhance administrators' control over the allocation of external IP addresses for LoadBalancer services.
+Manual allocation of External IP Addresses (Figure 5) can be implemented by means of these configurations :
+
+[cols="1a,2a"]
+|===
+| *Setting required for manual External IP allocation* | *Description*
+
+| `autoAssign: false`
+| Field to be added to the IPAddressPool’s spec planned for manual External IP allocation. The target of this field is preventing any automatic IP assignment from this pool.
+
+| `metallb.io/address-pool: <IPAddressPool name>`
+| Annotation to be added to the OpenShift Virtualization Service and valorized with the name of the IPAddressPool planned as source for the manual External IP Allocation.
+
+| `loadBalancerIP: <IP address to be assigned manually>`
+| Field to be added to the OpenShift Virtualization Service and valorized with the IP Address to be manually assigned to the service itself.
+|===
+
+* The selection of the IP Address Pool (the source from which the External IP address will be assigned) can be influenced by other factors, as illustrated in this table:
+
+[cols="1a,2a"]
+|===
+| *serviceAllocation fields* | *Description*
+
+| `namespaceSelectors`
+| List of label selectors used to select specific namespace(s) for the IP pool. This serves as a flexible alternative to a static namespace list.
+
+| `namespaces`
+| A literal list of namespace(s) to which the IP pool can be attached.
+
+| `priority`
+| The priority assigned to the IP pool during the IP allocation process for a service. Higher priority pools are evaluated first.
+
+| `serviceSelectors`
+| List of label selectors to select specific service(s) for which this IP pool can be used for IP allocation.
+|===
+
+_Figure 5 - Service definition with some examples of manual and automatic External IP Address assignment._
+
+image::Figure5-Service_definition.jpg[width="100%", height="100%", align="left"]
+
+
+* The IPAddressPools must be included within the BGPAdvertisement object to enable the advertisement of Network Layer Reachability Information (NLRI), which consists of the Network Prefix and Prefix Length associated with external IP addresses assigned to LoadBalancer services.
+
+* The purpose of the BGPAdvertisement (Figure 6) is to establish a relationship between the IPAddressPools (specifically which External IP Addresses assigned will be advertised from each IPAddressPools) and the BGP peers (to which the External IP Addresses will be advertised) involved in the BGP sessions with the MetalLB speakers.
+
+* This configuration ensures that the External IP Addresses advertised as Network Layer Reachability Information to the BGP peers will be accessible from outside the OpenShift Virtualization cluster.
+
+* It is important to note that the Network Layer Reachability Information, connected to the External IP Addresses assigned to the LoadBalancer service, will only be advertised if at least one virtual machine is active and connected as an endpoint to the LoadBalancer service.
+
+* NLRI advertisement can be influenced by these BGAdvertisements fields:
+
+[cols="1a,2a"]
+|===
+| *BGPAdvertisement fields* | *Description*
+
+| `aggregationLength`
+| The aggregation-length advertisement option lets you “roll up” the /32s into a larger prefix. Defaults to **32**. Works for IPv4 addresses.
+
+| `aggregationLengthV6`
+| The aggregation-length advertisement option lets you “roll up” the /128s into a larger prefix. Defaults to **128**. Works for IPv6 addresses.
+
+| `ipAddressPoolSelectors`
+| A selector for the IPAddressPools which would get advertised via this advertisement. If no IPAddressPool is selected by this or by the list, the advertisement is applied to all the IPAddressPools.
+
+| `ipAddressPools`
+| The list of IPAddressPools to advertise via this advertisement, specifically selected by name.
+
+| `nodeSelectors`
+| Allows limiting the nodes to announce as next hops for the LoadBalancer IP. When empty, all nodes in the cluster are announced as next hops.
+
+| `peers`
+| Limits the BGP peers to which the IPs of the selected pools are advertised. When empty, the LoadBalancer IP is announced to all configured BGPPeers.
+|===
+
+* In a BGP network topology based on iBGP, where the local ASN matches the peer ASN (Figure 1), the behavior of the BGP protocol can be affected by both the BGP Peer configurations and the BFD Profile, as perceptible in the next two tables.
+
+* Please note that the BGPPeer Custom Resource (CR) contains the necessary information to establish a BGP session with a single peer.
+
+* To establish sessions with multiple external routers, it is necessary to define multiple BGPPeer CRs, as illustrated in Figure 6.
+
+[cols="1a,2a"]
+|===
+| *Example of BGPPeer fields* | *Description*
+
+| `bfdProfile`
+| The name of the BFD Profile to be used for the BFD session associated with the BGP session. If not set, the BFD session will not be established.
+
+| `enableGracefulRestart`
+| Allows the BGP Peer to continue forwarding data packets along known routes while the routing protocol information is being restored.
+
+| `keepaliveTime`
+| Requested BGP keepalive time, per RFC4271 (default: **60s**).
+
+| `holdTime`
+| Requested BGP hold time, per RFC4271 (default: **180s**).
+
+| `connectTime`
+| Requested BGP connect time; controls how long BGP waits between connection attempts to a neighbor (default: **120s**).
+|===
+
+[cols="1a,2a"]
+|===
+| *Example of BFDProfile fields* | *Description*
+
+| `receiveInterval`
+| The minimum interval (in milliseconds) that this system is capable of receiving control packets (default: **300ms**).
+
+| `transmitInterval`
+| The minimum transmission interval (less jitter) that this system wants to use when sending BFD control packets (default: **300ms**).
+
+| `detectMultiplier`
+| Configures the detection multiplier to determine packet loss. The remote transmission interval is multiplied by this value to determine the connection loss detection timer (default: **3**).
+
+| `passiveMode`
+| Marks the session as passive. A passive session will not attempt to initiate the connection; it waits for control packets from a peer before it begins replying.
+|===
+
+
+_Figure 6 - MetalLB in Layer 3 mode (BGB mode) - Object relationships and BGP speaker association with OpenShift Virtualization nodes._
+
+image::Figure6-MetalLB_in_Layer3-BGP_mode.jpg[width="100%", height="100%", align="left"]
+
