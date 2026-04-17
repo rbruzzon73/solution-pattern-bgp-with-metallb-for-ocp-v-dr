@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization. :: BGP LB infrastructure with MetalLB for OpenShift Virtualization in DR</title>
     <link rel="canonical" href="https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-bgp-with-metallb-for-ocp-v-dr/index.html">
-    <link rel="next" href="02-metallb-and-bgp.html#_metalln_and_frr-bgp_configuration_settings">
+    <link rel="next" href="01-bgp-lb.html#bgp-lb">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
@@ -58,21 +58,36 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="index.html" class=" query-params-link">BGP LB infrastructure with MetalLB for OpenShift Virtualization in DR</a></h3>
+    <h3 class="title"><a href="index.html" class=" query-params-link">solution-pattern-bgp-with-metallb-for-ocp-v-dr</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="index.html">1. MetalLB Layer 3 (BGP) as a foundational component for BGP loadBalancer infrastructure.</a>
+    <a class="nav-link" href="index.html">Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization.</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="02-metallb-and-bgp.html#_metalln_and_frr-bgp_configuration_settings">1. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a>
+    <a class="nav-link" href="01-bgp-lb.html#bgp-lb">1. MetalLB Layer 3 (BGP) as a foundational component for establishing a BGP loadBalancer infrastructure.</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="03-bgp-lb-poc.html#_proof-of-concept_for_bgp_loadbalancer_infrastructure">2. Proof-of-Concept for BGP load balancer infrastructure to support Disaster Recovery for OpenShift Virtualization.</a>
+    <a class="nav-link" href="01-bgp-lb.html#_metallb_layer_3_bgp_as_a_foundational_component">1.1. MetalLB Layer 3 (BGP) as a foundational component.</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="04-bgp-lb-addendum.html">3. Addendum: sw versions and configurations related to this Proof-of-Concept.</a>
+    <a class="nav-link" href="02-metallb-and-bgp.html#bgp-adm-metallb-bgp">2. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="02-metallb-and-bgp.html#_administration_of_the_metallb_ipaddresspools_and_external_ip_address_advertisement_via_bgp">2.1. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="03-bgp-lb-poc.html#bgp-lb-poc">3. Proof-of-Concept for BGP load balancer infrastructure to support Disaster Recovery for OpenShift Virtualization.</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="03-bgp-lb-poc.html#_proof_of_concept_for_bgp_load_balancer_infrastructure">3.1. Proof-of-Concept for BGP load balancer infrastructure.</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="04-bgp-lb-addendum.html#bgp-lb-addedum">4. Addendum: sw versions and configurations related to this Proof-of-Concept.</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="04-bgp-lb-addendum.html#_addendum">4.1. Addendum.</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="https://redhat-solution-patterns.github.io/solution-patterns/patterns.html">Explore Red Hat Solution Patterns.</a>
@@ -84,12 +99,12 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">BGP LB infrastructure with MetalLB for OpenShift Virtualization in DR</span>
+    <span class="title">solution-pattern-bgp-with-metallb-for-ocp-v-dr</span>
     <span class="version">master</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <span class="title">BGP LB infrastructure with MetalLB for OpenShift Virtualization in DR</span>
+      <span class="title">solution-pattern-bgp-with-metallb-for-ocp-v-dr</span>
       <ul class="versions">
         <li class="version is-current">
           <a href="index.html">master</a>
@@ -107,8 +122,8 @@
   <a href="index.html" class="home-link is-current"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="index.html">BGP LB infrastructure with MetalLB for OpenShift Virtualization in DR</a></li>
-    <li><a href="index.html">1. MetalLB Layer 3 (BGP) as a foundational component for BGP loadBalancer infrastructure.</a></li>
+    <li><a href="index.html">solution-pattern-bgp-with-metallb-for-ocp-v-dr</a></li>
+    <li><a href="index.html">Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization.</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/rbruzzon73/solution-pattern-bgp-with-metallb-for-ocp-v-dr/edit/main/documentation/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
@@ -135,7 +150,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="bgp-lb"><a class="anchor" href="#bgp-lb"></a><a class="link" href="#bgp-lb">1. MetalLB Layer 3 (BGP) as a foundational component for establishing a BGP loadBalancer infrastructure.</a></h2>
+<h2 id="bgp-lb"><a class="anchor" href="#bgp-lb"></a><a class="link" href="#bgp-lb">1. Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization.</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_metallb_layer_3_bgp_as_a_foundational_component"><a class="anchor" href="#_metallb_layer_3_bgp_as_a_foundational_component"></a><a class="link" href="#_metallb_layer_3_bgp_as_a_foundational_component">1.1. MetalLB Layer 3 (BGP) as a foundational component.</a></h3>
@@ -1313,7 +1328,7 @@ Reference: <a href="https://www.redhat.com/en/blog/ceph-cluster-single-machine">
 </div>
 </div>
 <nav class="pagination">
-  <span class="next"><a href="02-metallb-and-bgp.html#_metalln_and_frr-bgp_configuration_settings" class="query-params-link">1. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a></span>
+  <span class="next"><a href="01-bgp-lb.html#bgp-lb" class="query-params-link">1. MetalLB Layer 3 (BGP) as a foundational component for establishing a BGP loadBalancer infrastructure.</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
