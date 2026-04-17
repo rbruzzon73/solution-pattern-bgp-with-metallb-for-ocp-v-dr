@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-template/01-pattern.html</loc>
-<lastmod>2024-10-17T11:53:57.295Z</lastmod>
+<loc>https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-bgp-with-metallb-for-ocp-v-dr/01-bgp-lb.html</loc>
+<lastmod>2026-04-17T13:14:21.558Z</lastmod>
 </url>
 <url>
-<loc>https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-template/02-architecture.html</loc>
-<lastmod>2024-10-17T11:53:57.295Z</lastmod>
+<loc>https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-bgp-with-metallb-for-ocp-v-dr/02-metallb-and-bgp.html</loc>
+<lastmod>2026-04-17T13:14:21.558Z</lastmod>
 </url>
 <url>
-<loc>https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-template/03-demo.html</loc>
-<lastmod>2024-10-17T11:53:57.295Z</lastmod>
+<loc>https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-bgp-with-metallb-for-ocp-v-dr/03-bgp-lb-poc.html</loc>
+<lastmod>2026-04-17T13:14:21.558Z</lastmod>
 </url>
 <url>
-<loc>https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-template/04-workshop.html</loc>
-<lastmod>2024-10-17T11:53:57.295Z</lastmod>
+<loc>https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-bgp-with-metallb-for-ocp-v-dr/04-bgp-lb-addendum.html</loc>
+<lastmod>2026-04-17T13:14:21.558Z</lastmod>
 </url>
 <url>
-<loc>https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-template/developer-resources.html</loc>
-<lastmod>2024-10-17T11:53:57.295Z</lastmod>
-</url>
-<url>
-<loc>https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-template/index.html</loc>
-<lastmod>2024-10-17T11:53:57.295Z</lastmod>
+<loc>https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-bgp-with-metallb-for-ocp-v-dr/index.html</loc>
+<lastmod>2026-04-17T13:14:21.558Z</lastmod>
 </url>
 </urlset>
