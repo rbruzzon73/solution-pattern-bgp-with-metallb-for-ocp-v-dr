@@ -1,4 +1,4 @@
-= Solution Patterns: Template Name
+= Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization.
 :page-layout: home
 :sectnums:
 :sectlinks:
