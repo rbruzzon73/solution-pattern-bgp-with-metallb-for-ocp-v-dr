@@ -1,3 +1,7 @@
+
+[#bgp-lb-addedum]
+== Addendum: version, notes and configuration version related to this Proof-of-Concept.
+
 ### Addendum.
 
 [cols="2,3,1,5a"]

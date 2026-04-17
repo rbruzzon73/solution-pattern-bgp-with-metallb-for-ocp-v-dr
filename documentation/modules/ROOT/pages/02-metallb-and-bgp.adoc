@@ -1,3 +1,6 @@
+[#bgp-adm-metallb-bgp]
+== Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.
+
 ### Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.
 
 * MetalLB can automatically allocate External IP addresses (IPv4 and IPv6), to OpenShift Virtualization services of type LoadBalancer, from any IP address pool where autoAssign is set to true (Figure 5).

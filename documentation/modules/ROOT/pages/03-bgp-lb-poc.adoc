@@ -1,3 +1,6 @@
+[#bgp-lb-poc]
+== Proof-of-Concept for BGP load balancer infrastructure to support Disaster Recovery for OpenShift Virtualization.
+
 ### Proof-of-Concept for BGP load balancer infrastructure.
 
 * The infrastructure for this Proof-of-Concept is based on the network topology illustrated in Figure 7 and the configurations detailed in the addendum section located at the end of this document.

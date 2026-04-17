@@ -13,7 +13,6 @@
 <br>
 ++++
 [#bgp-lb]
-== MetalLB Layer 3 (BGP) as a foundational component for establishing a BGP loadBalancer infrastructure.
 
 include::01-bgp-lb.adoc[]
 
@@ -21,7 +20,6 @@ include::01-bgp-lb.adoc[]
 <br>
 ++++
 [#bgp-adm-metallb-bgp]
-== Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.
 
 include::02-metallb-and-bgp.adoc[]
 
@@ -29,7 +27,6 @@ include::02-metallb-and-bgp.adoc[]
 <br>
 ++++
 [#bgp-lb-poc]
-== Proof-of-Concept for BGP load balancer infrastructure to support Disaster Recovery for OpenShift Virtualization.
 
 include::03-bgp-lb-poc.adoc[]
 
@@ -37,6 +34,5 @@ include::03-bgp-lb-poc.adoc[]
 <br>
 ++++
 [#bgp-lb-addedum]
-== Addendum: version, notes and configuration version related to this Proof-of-Concept.
 
 include::04-bgp-lb-addendum.adoc[]

@@ -1,3 +1,7 @@
+
+[#bgp-lb]
+== Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization.
+
 ### MetalLB Layer 3 (BGP) as a foundational component.
 
 * The BGP loadBalancer insfrastructure utilizes MetalLB in Layer 3 (BGP) mode as a foundational component.
