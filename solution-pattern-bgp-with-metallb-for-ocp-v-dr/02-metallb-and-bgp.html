@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: BGP LB infrastructure with MetalLB for OpenShift Virtualization in DR</title>
     <link rel="canonical" href="https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-bgp-with-metallb-for-ocp-v-dr/02-metallb-and-bgp.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="03-bgp-lb-poc.html#_proof-of-concept_for_bgp_loadbalancer_infrastructure">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
@@ -65,6 +67,9 @@
     <a class="nav-link" href="index.html">1. MetalLB Layer 3 (BGP) as a foundational component for BGP loadBalancer infrastructure.</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#_metalln_and_frr-bgp_configuration_settings">1}. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="03-bgp-lb-poc.html#_proof-of-concept_for_bgp_loadbalancer_infrastructure">2. Proof-of-Concept for BGP load balancer infrastructure to support Disaster Recovery for OpenShift Virtualization.</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -102,6 +107,10 @@
 <button class="nav-toggle"></button>
   <a href="index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">BGP LB infrastructure with MetalLB for OpenShift Virtualization in DR</a></li>
+    <li><a href="#_metalln_and_frr-bgp_configuration_settings">1}. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a></li>
+  </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/rbruzzon73/solution-pattern-bgp-with-metallb-for-ocp-v-dr/edit/main/documentation/modules/ROOT/pages/02-metallb-and-bgp.adoc">Edit this Page</a></div>
   </div>
@@ -422,6 +431,10 @@ Manual allocation of External IP Addresses (Figure 5) can be implemented by mean
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html" class="query-params-link">1. MetalLB Layer 3 (BGP) as a foundational component for BGP loadBalancer infrastructure.</a></span>
+  <span class="next"><a href="03-bgp-lb-poc.html#_proof-of-concept_for_bgp_loadbalancer_infrastructure" class="query-params-link">2. Proof-of-Concept for BGP load balancer infrastructure to support Disaster Recovery for OpenShift Virtualization.</a></span>
+</nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
