@@ -64,34 +64,43 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="index.html">Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization.</a>
+    <a class="nav-link" href="index.html">Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="#bgp-lb">1. Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization.</a>
+    <a class="nav-link" href="#bgp-lb">1. Use cases</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="#_metallb_layer_3_bgp_as_a_foundational_component">1.1. MetalLB Layer 3 (BGP) as a foundational component.</a>
+    <a class="nav-link" href="#_the_story_behind_this_solution_pattern">2. The story behind this solution pattern</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="02-metallb-and-bgp.html#bgp-adm-metallb-bgp">2. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a>
+    <a class="nav-link" href="#_the_solution">3. The Solution</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="02-metallb-and-bgp.html#_administration_of_the_metallb_ipaddresspools_and_external_ip_address_advertisement_via_bgp">2.1. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a>
+    <a class="nav-link" href="#_implementing_bgp_load_balancing_infrastructure_with_metallb_for_openshift_virtualization">3.1. Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="03-bgp-lb-poc.html#bgp-lb-poc">3. Proof-of-Concept for BGP load balancer infrastructure to support Disaster Recovery for OpenShift Virtualization.</a>
+    <a class="nav-link" href="02-metallb-and-bgp.html#bgp-adm-metallb-bgp">4. Architecture</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="03-bgp-lb-poc.html#_proof_of_concept_for_bgp_load_balancer_infrastructure">3.1. Proof-of-Concept for BGP load balancer infrastructure.</a>
+    <a class="nav-link" href="02-metallb-and-bgp.html#_metallb_architecture_in_layer_3_bgp_mode">4.1. MetalLB architecture in Layer 3 (BGP mode)</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="04-bgp-lb-addendum.html#bgp-lb-addedum">4. Addendum: sw versions and configurations related to this Proof-of-Concept.</a>
+    <a class="nav-link" href="02-metallb-and-bgp.html#_administration_of_the_metallb_ipaddresspools_and_external_ip_address_advertisement_via_bgp">4.2. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="04-bgp-lb-addendum.html#_addendum">4.1. Addendum.</a>
+    <a class="nav-link" href="03-bgp-lb-poc.html#bgp-lb-poc">5. See the Solution in Action</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="https://redhat-solution-patterns.github.io/solution-patterns/patterns.html">Explore Red Hat Solution Patterns.</a>
+    <a class="nav-link" href="03-bgp-lb-poc.html#_proof_of_concept_for_bgp_load_balancer_infrastructure">5.1. Proof-of-Concept for BGP load balancer infrastructure</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="04-bgp-lb-addendum.html#bgp-lb-addedum">6. Developer Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="04-bgp-lb-addendum.html#_addendum">6.1. Addendum: versions, notes and configurations related to this Proof-of-Concept</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://redhat-solution-patterns.github.io/solution-patterns/patterns.html">Explore Red Hat Solution Patterns</a>
   </li>
 </ul>
   </li>
@@ -124,7 +133,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">solution-pattern-bgp-with-metallb-for-ocp-v-dr</a></li>
-    <li><a href="#bgp-lb">1. Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization.</a></li>
+    <li><a href="#bgp-lb">1. Use cases</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/rbruzzon73/solution-pattern-bgp-with-metallb-for-ocp-v-dr/edit/main/documentation/modules/ROOT/pages/01-bgp-lb.adoc">Edit this Page</a></div>
@@ -132,10 +141,63 @@
   <div class="content">
 <article class="doc">
 <div class="sect1">
-<h2 id="bgp-lb"><a class="anchor" href="#bgp-lb"></a>Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization.</h2>
+<h2 id="bgp-lb"><a class="anchor" href="#bgp-lb"></a>Use cases.</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>High-Performance Bare Metal Workloads:</strong> Leveraging ECMP (Equal-Cost Multi-Path) to provide linear bandwidth scaling and eliminate hardware throughput bottlenecks.</p>
+</li>
+<li>
+<p><strong>Next-Gen Telco &amp; Edge Deployments:</strong> Native Dual-Stack (IPv4/IPv6) support for 5G Core functions, ensuring high-throughput, low-latency traffic handling at the network edge.</p>
+</li>
+<li>
+<p><strong>Geographic Traffic Optimization:</strong> Directing traffic to the topologically nearest Red Hat OpenShift cluster via OSPF External Type 1 (E1) redistribution, enabling Zero-Touch convergence and automated site failover.</p>
+</li>
+<li>
+<p><strong>TCO Optimization:</strong> Significant reduction in Total Cost of Ownership by eliminating specialized load-balancing hardware and licensing, while streamlining Day 2 operations through unified network control plane management.
+Historically, network traffic relied on centralized hardware load balancers, creating architectural bottlenecks and significant operational costs.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_story_behind_this_solution_pattern"><a class="anchor" href="#_the_story_behind_this_solution_pattern"></a>The story behind this solution pattern</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Historically, network traffic relied on centralized hardware load balancers, creating architectural bottlenecks and significant operational costs.</p>
+</li>
+<li>
+<p>Transitioning to MetalLB Layer 3 (BGP), integrating load-balancing intelligence directly into the OpenShift Virtualization control plane, was identified as the path to modernize infrastructure with the following benefits:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>By advertising Virtual IPs as NLRI (BGP), application endpoints are treated as native subnets with a significantly reduction of the Total Cost of Ownership (TCO).</p>
+</li>
+<li>
+<p>Redistributing BGP routes into OSPF (or other IGPs) removes the "Full Mesh" iBGP requirement, allowing the infrastructure to scale horizontally without configuration bloat.</p>
+</li>
+<li>
+<p>DR shifts to native network re-convergence</p>
+</li>
+<li>
+<p>Dual-stack (IPv4/IPv6) compatible architecture based on a self-healing network fabric.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_solution"><a class="anchor" href="#_the_solution"></a>The Solution</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_metallb_layer_3_bgp_as_a_foundational_component"><a class="anchor" href="#_metallb_layer_3_bgp_as_a_foundational_component"></a>MetalLB Layer 3 (BGP) as a foundational component.</h3>
+<h3 id="_implementing_bgp_load_balancing_infrastructure_with_metallb_for_openshift_virtualization"><a class="anchor" href="#_implementing_bgp_load_balancing_infrastructure_with_metallb_for_openshift_virtualization"></a>Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -229,96 +291,12 @@ In such cases, different sets of IP Address Pools  are assigned to the MetalLB o
 <img src="_images/Figure2-Modernizing_Business_Continuity.jpg" alt="Figure2 Modernizing Business Continuity" width="100%" height="100%">
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>The MetalLB architecture in Layer 3 (BGP mode) relies on the FRR (FRRouting) suite to instantiate the BGP Speaker PODs in the designated nodes within Red Hat OpenShift Virtualization.</p>
-</li>
-<li>
-<p>The objective of the MetalLB BGP Speakers is to advertise, to the external iBGP or eBGP peers (iBGP in this Proof Of Concept), the Network Layer Reachability Information (NLRI) related to the External IP addresses assigned to the LoadBalancer services.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>Figure 3 - BGP Equal-Cost Multi-Path (ECMP)</em></p>
-</div>
-<div class="imageblock left">
-<div class="content">
-<img src="_images/Figure3-BGP_Equal_Cost_Multi-Paty-ECMP.jpg" alt="[width=&quot;300%&quot;" height="500%">
-</div>
-</div>
-<div class="paragraph">
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The BGP Equal-Cost Multi-Path (ECMP) feature (Figure 3), which allows for the distribution of traffic across multiple equal-cost paths to the same destination, along with BGP&#8217;s failover capabilities, are critical components that enhance both the scalability and performance of a BGP solution.</p>
-</li>
-<li>
-<p>Additionally, the reconvergence capabilities of routing protocols contribute significantly to the system resilience.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Bidirectional Forward Detection (BFD) plays a vital role in BGP performance by reducing the time required to detect network failures.
-BFD can identify failures within milliseconds, offering a substantial improvement over the standard keepalive timeout recommendations of 20 seconds specified in RFC 4271, with some third-party providers adopting longer timeouts such as 60 seconds.</p>
-</li>
-<li>
-<p>The default configuration of the MetalLB BGP Speaker is to deny any Network Layer Reachability Information (NLRI) advertised by the BGP peers (external routers).</p>
-</li>
-<li>
-<p>This posture presents a technical challenge regarding how to enable connectivity from internal endpoints behind the LoadBalancer services to remote subnets that are not directly connected to the Red Hat OpenShift Virtualization worker nodes.</p>
-</li>
-<li>
-<p>The Network Address Translation (NAT) process implemented on the external router connected to the worker nodes of OpenShift Virtualization is one of the possible approaches for managing this type of network complexity (Figure 4) connected to the traditional Kubernetes networking where the MetalLB architecture in Layer 3 (BGP mode) speaker are involved.</p>
-</li>
-<li>
-<p>An alternative approach for managing this complexity is available in this Red Hat blog post:
-<a href="https://www.redhat.com/en/blog/learning-kubernetes-nodes-networking-routes-via-bgp">Learning Kubernetes nodes networking routes via BGP</a></p>
-</li>
-<li>
-<p>Implementing user-defined networks (UDNs) in Red Hat OpenShift Virtualization using Virtual Routing and Forwarding (VRF), advertising them via BGP with FRRouting speakers, and injecting learned BGP prefixes back into the VRF creates an adaptable solution that makes entire user-defined networks (UDNs) prefixes, not just LoadBalancer service IPs, directly reachable from the customers network infrastructure.</p>
-</li>
-<li>
-<p>This topic, related to user-defined networks (UDNs) exposed via BGP routing protocol, is extensively discussed in this article:
-<a href="https://developers.redhat.com/articles/2025/10/23/exposing-openshift-networks-using-bgp#the_benefits_of_bgp_for_openshift_networking">Exposing OpenShift networks using BGP</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>Figure 4 - Implementation of Network Address Translation to facilitate connectivity to remote subnets.</em></p>
-</div>
-<div class="imageblock text-left">
-<div class="content">
-<img src="_images/Figure4-Implementation_of_Network_Address_Translation.jpg" alt="Figure4 Implementation of Network Address Translation" width="100%" height="100%">
-</div>
-</div>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="index.html" class="query-params-link">Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization.</a></span>
-  <span class="next"><a href="02-metallb-and-bgp.html#bgp-adm-metallb-bgp" class="query-params-link">2. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a></span>
+  <span class="prev"><a href="index.html" class="query-params-link">Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization</a></span>
+  <span class="next"><a href="02-metallb-and-bgp.html#bgp-adm-metallb-bgp" class="query-params-link">4. Architecture</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

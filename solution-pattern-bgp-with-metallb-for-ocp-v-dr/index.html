@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization. :: BGP LB infrastructure with MetalLB for OpenShift Virtualization in DR</title>
+    <title>Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization :: BGP LB infrastructure with MetalLB for OpenShift Virtualization in DR</title>
     <link rel="canonical" href="https://redhat-solution-patterns.github.io/solution-patterns/solution-pattern-bgp-with-metallb-for-ocp-v-dr/index.html">
     <link rel="next" href="01-bgp-lb.html#bgp-lb">
     <meta name="generator" content="Antora 3.0.0">
@@ -63,34 +63,43 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="index.html">Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization.</a>
+    <a class="nav-link" href="index.html">Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="01-bgp-lb.html#bgp-lb">1. Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization.</a>
+    <a class="nav-link" href="01-bgp-lb.html#bgp-lb">1. Use cases</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="01-bgp-lb.html#_metallb_layer_3_bgp_as_a_foundational_component">1.1. MetalLB Layer 3 (BGP) as a foundational component.</a>
+    <a class="nav-link" href="01-bgp-lb.html#_the_story_behind_this_solution_pattern">2. The story behind this solution pattern</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="02-metallb-and-bgp.html#bgp-adm-metallb-bgp">2. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a>
+    <a class="nav-link" href="01-bgp-lb.html#_the_solution">3. The Solution</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="02-metallb-and-bgp.html#_administration_of_the_metallb_ipaddresspools_and_external_ip_address_advertisement_via_bgp">2.1. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a>
+    <a class="nav-link" href="01-bgp-lb.html#_implementing_bgp_load_balancing_infrastructure_with_metallb_for_openshift_virtualization">3.1. Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="03-bgp-lb-poc.html#bgp-lb-poc">3. Proof-of-Concept for BGP load balancer infrastructure to support Disaster Recovery for OpenShift Virtualization.</a>
+    <a class="nav-link" href="02-metallb-and-bgp.html#bgp-adm-metallb-bgp">4. Architecture</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="03-bgp-lb-poc.html#_proof_of_concept_for_bgp_load_balancer_infrastructure">3.1. Proof-of-Concept for BGP load balancer infrastructure.</a>
+    <a class="nav-link" href="02-metallb-and-bgp.html#_metallb_architecture_in_layer_3_bgp_mode">4.1. MetalLB architecture in Layer 3 (BGP mode)</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="04-bgp-lb-addendum.html#bgp-lb-addedum">4. Addendum: sw versions and configurations related to this Proof-of-Concept.</a>
+    <a class="nav-link" href="02-metallb-and-bgp.html#_administration_of_the_metallb_ipaddresspools_and_external_ip_address_advertisement_via_bgp">4.2. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="04-bgp-lb-addendum.html#_addendum">4.1. Addendum.</a>
+    <a class="nav-link" href="03-bgp-lb-poc.html#bgp-lb-poc">5. See the Solution in Action</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="https://redhat-solution-patterns.github.io/solution-patterns/patterns.html">Explore Red Hat Solution Patterns.</a>
+    <a class="nav-link" href="03-bgp-lb-poc.html#_proof_of_concept_for_bgp_load_balancer_infrastructure">5.1. Proof-of-Concept for BGP load balancer infrastructure</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="04-bgp-lb-addendum.html#bgp-lb-addedum">6. Developer Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="04-bgp-lb-addendum.html#_addendum">6.1. Addendum: versions, notes and configurations related to this Proof-of-Concept</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://redhat-solution-patterns.github.io/solution-patterns/patterns.html">Explore Red Hat Solution Patterns</a>
   </li>
 </ul>
   </li>
@@ -123,14 +132,14 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">solution-pattern-bgp-with-metallb-for-ocp-v-dr</a></li>
-    <li><a href="index.html">Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization.</a></li>
+    <li><a href="index.html">Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/rbruzzon73/solution-pattern-bgp-with-metallb-for-ocp-v-dr/edit/main/documentation/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization.</h1>
+<h1 class="page">Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="ulist">
@@ -144,16 +153,69 @@
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Contributors:</strong> _Riccardo Bruzzone (Senior Technical Accaunt Manager) and Daniele Nessilli (Technical Accaunt Manager)</p>
+<p><strong>Contributors:</strong> Riccardo Bruzzone (Senior Technical Accaunt Manager) and Daniele Nessilli (Technical Accaunt Manager)</p>
 </div>
 <br>
 </div>
 </div>
 <div class="sect1">
-<h2 id="bgp-lb"><a class="anchor" href="#bgp-lb"></a><a class="link" href="#bgp-lb">1. Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization.</a></h2>
+<h2 id="bgp-lb"><a class="anchor" href="#bgp-lb"></a><a class="link" href="#bgp-lb">1. Use cases.</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>High-Performance Bare Metal Workloads:</strong> Leveraging ECMP (Equal-Cost Multi-Path) to provide linear bandwidth scaling and eliminate hardware throughput bottlenecks.</p>
+</li>
+<li>
+<p><strong>Next-Gen Telco &amp; Edge Deployments:</strong> Native Dual-Stack (IPv4/IPv6) support for 5G Core functions, ensuring high-throughput, low-latency traffic handling at the network edge.</p>
+</li>
+<li>
+<p><strong>Geographic Traffic Optimization:</strong> Directing traffic to the topologically nearest Red Hat OpenShift cluster via OSPF External Type 1 (E1) redistribution, enabling Zero-Touch convergence and automated site failover.</p>
+</li>
+<li>
+<p><strong>TCO Optimization:</strong> Significant reduction in Total Cost of Ownership by eliminating specialized load-balancing hardware and licensing, while streamlining Day 2 operations through unified network control plane management.
+Historically, network traffic relied on centralized hardware load balancers, creating architectural bottlenecks and significant operational costs.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_story_behind_this_solution_pattern"><a class="anchor" href="#_the_story_behind_this_solution_pattern"></a><a class="link" href="#_the_story_behind_this_solution_pattern">2. The story behind this solution pattern</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Historically, network traffic relied on centralized hardware load balancers, creating architectural bottlenecks and significant operational costs.</p>
+</li>
+<li>
+<p>Transitioning to MetalLB Layer 3 (BGP), integrating load-balancing intelligence directly into the OpenShift Virtualization control plane, was identified as the path to modernize infrastructure with the following benefits:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>By advertising Virtual IPs as NLRI (BGP), application endpoints are treated as native subnets with a significantly reduction of the Total Cost of Ownership (TCO).</p>
+</li>
+<li>
+<p>Redistributing BGP routes into OSPF (or other IGPs) removes the "Full Mesh" iBGP requirement, allowing the infrastructure to scale horizontally without configuration bloat.</p>
+</li>
+<li>
+<p>DR shifts to native network re-convergence</p>
+</li>
+<li>
+<p>Dual-stack (IPv4/IPv6) compatible architecture based on a self-healing network fabric.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_solution"><a class="anchor" href="#_the_solution"></a><a class="link" href="#_the_solution">3. The Solution</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_metallb_layer_3_bgp_as_a_foundational_component"><a class="anchor" href="#_metallb_layer_3_bgp_as_a_foundational_component"></a><a class="link" href="#_metallb_layer_3_bgp_as_a_foundational_component">1.1. MetalLB Layer 3 (BGP) as a foundational component.</a></h3>
+<h3 id="_implementing_bgp_load_balancing_infrastructure_with_metallb_for_openshift_virtualization"><a class="anchor" href="#_implementing_bgp_load_balancing_infrastructure_with_metallb_for_openshift_virtualization"></a><a class="link" href="#_implementing_bgp_load_balancing_infrastructure_with_metallb_for_openshift_virtualization">3.1. Implementing BGP Load Balancing infrastructure with MetalLB for OpenShift Virtualization</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -247,6 +309,15 @@ In such cases, different sets of IP Address Pools  are assigned to the MetalLB o
 <img src="_images/Figure2-Modernizing_Business_Continuity.jpg" alt="Figure2 Modernizing Business Continuity" width="100%" height="100%">
 </div>
 </div>
+<br>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bgp-adm-metallb-bgp"><a class="anchor" href="#bgp-adm-metallb-bgp"></a><a class="link" href="#bgp-adm-metallb-bgp">4. Architecture</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_metallb_architecture_in_layer_3_bgp_mode"><a class="anchor" href="#_metallb_architecture_in_layer_3_bgp_mode"></a><a class="link" href="#_metallb_architecture_in_layer_3_bgp_mode">4.1. MetalLB architecture in Layer 3 (BGP mode)</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -331,15 +402,9 @@ BFD can identify failures within milliseconds, offering a substantial improvemen
 <img src="_images/Figure4-Implementation_of_Network_Address_Translation.jpg" alt="Figure4 Implementation of Network Address Translation" width="100%" height="100%">
 </div>
 </div>
-<br>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="bgp-adm-metallb-bgp"><a class="anchor" href="#bgp-adm-metallb-bgp"></a><a class="link" href="#bgp-adm-metallb-bgp">2. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a></h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_administration_of_the_metallb_ipaddresspools_and_external_ip_address_advertisement_via_bgp"><a class="anchor" href="#_administration_of_the_metallb_ipaddresspools_and_external_ip_address_advertisement_via_bgp"></a><a class="link" href="#_administration_of_the_metallb_ipaddresspools_and_external_ip_address_advertisement_via_bgp">2.1. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP.</a></h3>
+<h3 id="_administration_of_the_metallb_ipaddresspools_and_external_ip_address_advertisement_via_bgp"><a class="anchor" href="#_administration_of_the_metallb_ipaddresspools_and_external_ip_address_advertisement_via_bgp"></a><a class="link" href="#_administration_of_the_metallb_ipaddresspools_and_external_ip_address_advertisement_via_bgp">4.2. Administration of the MetalLB IPAddressPools and External IP Address advertisement via BGP</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -657,10 +722,10 @@ Manual allocation of External IP Addresses (Figure 5) can be implemented by mean
 </div>
 </div>
 <div class="sect1">
-<h2 id="bgp-lb-poc"><a class="anchor" href="#bgp-lb-poc"></a><a class="link" href="#bgp-lb-poc">3. Proof-of-Concept for BGP load balancer infrastructure to support Disaster Recovery for OpenShift Virtualization.</a></h2>
+<h2 id="bgp-lb-poc"><a class="anchor" href="#bgp-lb-poc"></a><a class="link" href="#bgp-lb-poc">5. See the Solution in Action</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_proof_of_concept_for_bgp_load_balancer_infrastructure"><a class="anchor" href="#_proof_of_concept_for_bgp_load_balancer_infrastructure"></a><a class="link" href="#_proof_of_concept_for_bgp_load_balancer_infrastructure">3.1. Proof-of-Concept for BGP load balancer infrastructure.</a></h3>
+<h3 id="_proof_of_concept_for_bgp_load_balancer_infrastructure"><a class="anchor" href="#_proof_of_concept_for_bgp_load_balancer_infrastructure"></a><a class="link" href="#_proof_of_concept_for_bgp_load_balancer_infrastructure">5.1. Proof-of-Concept for BGP load balancer infrastructure</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -690,7 +755,7 @@ Manual allocation of External IP Addresses (Figure 5) can be implemented by mean
 </table>
 </div>
 <div class="sect3">
-<h4 id="_initial_situation"><a class="anchor" href="#_initial_situation"></a><a class="link" href="#_initial_situation">3.1.1. <strong>Initial situation:</strong></a></h4>
+<h4 id="_initial_situation"><a class="anchor" href="#_initial_situation"></a><a class="link" href="#_initial_situation">5.1.1. <strong>Initial situation:</strong></a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -890,7 +955,7 @@ Manual allocation of External IP Addresses (Figure 5) can be implemented by mean
 </div>
 </div>
 <div class="sect3">
-<h4 id="_recovery_prerequisite"><a class="anchor" href="#_recovery_prerequisite"></a><a class="link" href="#_recovery_prerequisite">3.1.2. <strong>Recovery prerequisite:</strong></a></h4>
+<h4 id="_recovery_prerequisite"><a class="anchor" href="#_recovery_prerequisite"></a><a class="link" href="#_recovery_prerequisite">5.1.2. <strong>Recovery prerequisite:</strong></a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -933,7 +998,7 @@ Manual allocation of External IP Addresses (Figure 5) can be implemented by mean
 </div>
 </div>
 <div class="sect3">
-<h4 id="_primary_cluster_isolation"><a class="anchor" href="#_primary_cluster_isolation"></a><a class="link" href="#_primary_cluster_isolation">3.1.3. <strong>Primary cluster isolation:</strong></a></h4>
+<h4 id="_primary_cluster_isolation"><a class="anchor" href="#_primary_cluster_isolation"></a><a class="link" href="#_primary_cluster_isolation">5.1.3. <strong>Primary cluster isolation:</strong></a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -973,7 +1038,7 @@ Manual allocation of External IP Addresses (Figure 5) can be implemented by mean
 </div>
 </div>
 <div class="sect3">
-<h4 id="_restore_process_on_dr_cluster"><a class="anchor" href="#_restore_process_on_dr_cluster"></a><a class="link" href="#_restore_process_on_dr_cluster">3.1.4. <strong>Restore process on DR cluster:</strong></a></h4>
+<h4 id="_restore_process_on_dr_cluster"><a class="anchor" href="#_restore_process_on_dr_cluster"></a><a class="link" href="#_restore_process_on_dr_cluster">5.1.4. <strong>Restore process on DR cluster:</strong></a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1020,7 +1085,7 @@ Manual allocation of External IP Addresses (Figure 5) can be implemented by mean
 </div>
 </div>
 <div class="sect3">
-<h4 id="_external_ip_address_reachability_restored"><a class="anchor" href="#_external_ip_address_reachability_restored"></a><a class="link" href="#_external_ip_address_reachability_restored">3.1.5. <strong>External IP address reachability restored:</strong></a></h4>
+<h4 id="_external_ip_address_reachability_restored"><a class="anchor" href="#_external_ip_address_reachability_restored"></a><a class="link" href="#_external_ip_address_reachability_restored">5.1.5. <strong>External IP address reachability restored:</strong></a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1145,10 +1210,10 @@ Manual allocation of External IP Addresses (Figure 5) can be implemented by mean
 </div>
 </div>
 <div class="sect1">
-<h2 id="bgp-lb-addedum"><a class="anchor" href="#bgp-lb-addedum"></a><a class="link" href="#bgp-lb-addedum">4. Addendum: version, notes and configuration version related to this Proof-of-Concept.</a></h2>
+<h2 id="bgp-lb-addedum"><a class="anchor" href="#bgp-lb-addedum"></a><a class="link" href="#bgp-lb-addedum">6. Developer Resources</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_addendum"><a class="anchor" href="#_addendum"></a><a class="link" href="#_addendum">4.1. Addendum.</a></h3>
+<h3 id="_addendum_versions_notes_and_configurations_related_to_this_proof_of_concept"><a class="anchor" href="#_addendum_versions_notes_and_configurations_related_to_this_proof_of_concept"></a><a class="link" href="#_addendum_versions_notes_and_configurations_related_to_this_proof_of_concept">6.1. Addendum: versions, notes and configurations related to this Proof-of-Concept</a></h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 18.1818%;">
@@ -1328,7 +1393,7 @@ Reference: <a href="https://www.redhat.com/en/blog/ceph-cluster-single-machine">
 </div>
 </div>
 <nav class="pagination">
-  <span class="next"><a href="01-bgp-lb.html#bgp-lb" class="query-params-link">1. Implementing BGP Load Balancing infrastructure with MetalLB to support disaster recovery strategies in OpenShift Virtualization.</a></span>
+  <span class="next"><a href="01-bgp-lb.html#bgp-lb" class="query-params-link">1. Use cases</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
